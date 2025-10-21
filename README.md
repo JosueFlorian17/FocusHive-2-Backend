@@ -1,3 +1,6 @@
+# Definiendo stack tecnológico - backend
+## NestJS + Prisma + MySQL
+
 # 🧩 MAPEAMIENTO DE ENDPOINTS POR MÓDULO
 
 ## 🔐 Auth Module
