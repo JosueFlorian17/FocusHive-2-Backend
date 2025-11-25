@@ -32,7 +32,6 @@ async def create_study_session(
     """
     Crea una nueva sesión de estudio y actualiza las métricas del usuario.
     
-    Implementa el requisito funcional #2 (almacenar métricas de sesiones)
     
     Requiere: Token de autenticación
     
@@ -48,15 +47,7 @@ async def create_study_session(
         - Actualiza total_studied_time del usuario
         - Marca el método como "utilizado" en usuario_metodo
     
-    Ejemplo de request body:
-```json
-    {
-      "metodo_id": 1,
-      "fecha_inicio": "2025-01-20T14:30:00",
-      "duracion_minutos": 50,
-      "fue_completada": true,
-      "descripcion": "Sesión de estudio de matemáticas usando Pomodoro. Completé 2 pomodoros."
-    }
+
 ```
     """
     new_session = DashboardService.create_study_session(db, current_user.user_id, session_data)
@@ -462,7 +453,7 @@ async def get_weekly_progress(
         "daily_breakdown": daily_breakdown
     }
 
-# ===== GET METHOD STATISTICS =====
+#  GET METHOD STATISTICS
 @router.get(
     "/stats/methods",
     summary="Obtener estadísticas de métodos",
