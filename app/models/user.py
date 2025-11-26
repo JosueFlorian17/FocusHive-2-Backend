@@ -1,4 +1,5 @@
 from sqlalchemy import Column, Integer, String, Boolean, Text, DateTime
+from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 from app.database.connection import Base
 
@@ -20,6 +21,13 @@ class Usuario(Base):
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())
     diagnostic_completed = Column(Boolean, default=False)
+
+    # Relaciones inversas
+    flashcards = relationship("Flashcard", back_populates="user")
+    posts = relationship("Post", back_populates="user")
+    likes = relationship("Like", back_populates="user")
+    responses = relationship("DiagnosticResponse", back_populates="user")
+
 
 
     def __repr__(self):
